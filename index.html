@@ -14,13 +14,22 @@
         }
         header {
             background: #f8f9fa;
-            padding: 30px 20px;
-            text-align: left;
+            padding: 40px 20px;
             border-bottom: 1px solid #eee;
         }
         .header-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+        /* 1. 名字绝对居中 */
+        h1 { 
+            margin-bottom: 20px; 
+            text-align: center; 
+            font-size: 2.2em;
+        } 
+        .contact-info { 
+            font-size: 1.0em; 
+            text-align: left; /* 联系信息内部左对齐 */
         }
         main {
             max-width: 800px;
@@ -28,7 +37,6 @@
             padding: 20px;
             background: #fff;
         }
-        h1 { margin-bottom: 10px; }
         h2 { 
             border-bottom: 2px solid #333; 
             padding-bottom: 5px; 
@@ -40,9 +48,10 @@
         li { margin-bottom: 8px; }
         a { color: #007BFF; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .contact-info { font-size: 0.95em; }
         .paper-title { font-style: italic; font-weight: bold; }
         .venue { color: #555; }
+        /* 2. 防止导师名字换行 */
+        .nowrap { white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -53,9 +62,9 @@
                 <p>
                     <strong>Postdoctoral Fellow, Shui Mu Tsinghua Scholar (清华大学水木学者博士后)</strong><br>
                     Department of Mathematical Sciences, Tsinghua University, Beijing, China<br>
-                    Advisor: Guoyi Xu (徐国义)<br>
+                    <span class="nowrap">Advisor: Guoyi Xu (徐国义)</span><br>
                     <strong>Major:</strong> Pure Mathematics &nbsp; <strong>Specialization:</strong> Differential Geometry<br>
-                    <strong>Email:</strong> yezhu@tsinghua.edu.cn | <strong>Phone:</strong> 15801188395
+                    <strong>Email:</strong> yezhu@tsinghua.edu.cn
                 </p>
             </div>
         </div>
