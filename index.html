@@ -4,151 +4,463 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhu Ye's Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #1a1a1a;
+            --ink-light: #4a4a4a;
+            --ink-faint: #888;
+            --rule: #c8b89a;
+            --rule-light: #e8ddd0;
+            --cream: #faf8f4;
+            --warm-white: #fffefb;
+            --accent: #8b6914;
+            --accent-light: #c9a84c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            /* 确保全局默认不加粗 */
-            font-weight: normal;
+            font-family: 'EB Garamond', Georgia, serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.75;
+            font-size: 17px;
         }
+
+        /* ── Decorative top rule ── */
+        .top-rule {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-light), var(--accent), var(--accent-light), transparent);
+        }
+
+        /* ── Header ── */
         header {
-            background: #f8f9fa;
-            padding: 40px 20px;
-            border-bottom: 1px solid #eee;
-            text-align: center; 
-        }
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        /* 名字不加粗 */
-        h1 { 
-            margin-bottom: 20px; 
-            font-size: 2.2em;
-            font-weight: normal;
-        } 
-        .contact-info { 
-            font-size: 1.0em; 
+            background: var(--warm-white);
+            padding: 60px 20px 48px;
             text-align: center;
+            border-bottom: 1px solid var(--rule-light);
+            position: relative;
+            overflow: hidden;
         }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 65%);
+            pointer-events: none;
         }
-        /* 唯独保留 Section 标题加粗 */
-        h2 { 
-            border-bottom: 2px solid #333; 
-            padding-bottom: 5px; 
-            margin-top: 30px;
+
+        .header-ornament {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65em;
+            letter-spacing: 0.35em;
+            color: var(--accent);
             text-transform: uppercase;
-            font-size: 1.2em;
-            text-align: left;
-            font-weight: bold; 
+            margin-bottom: 18px;
+            opacity: 0.8;
         }
-        ul { padding-left: 20px; text-align: left; }
-        li { margin-bottom: 12px; } 
-        p { text-align: left; }
-        a { color: #007BFF; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        /* 论文标题设为正常粗细 */
-        .paper-title { font-style: italic; font-weight: normal; }
-        .venue { color: #555; }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 2.6em;
+            letter-spacing: 0.04em;
+            color: var(--ink);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .name-chinese {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.42em;
+            letter-spacing: 0.1em;
+            color: var(--ink-faint);
+            vertical-align: super;
+        }
+
+        .divider-ornament {
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 220px;
+        }
+
+        .divider-ornament::before,
+        .divider-ornament::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rule));
+        }
+
+        .divider-ornament .diamond {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-light);
+            transform: rotate(45deg);
+            flex-shrink: 0;
+        }
+
+        .contact-block {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05em;
+            color: var(--ink-light);
+            line-height: 2;
+        }
+
+        .contact-block .role {
+            font-size: 1.1em;
+            color: var(--ink);
+            letter-spacing: 0.03em;
+        }
+
+        .contact-block a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--rule-light);
+            transition: border-color 0.2s;
+        }
+
+        .contact-block a:hover {
+            border-color: var(--accent-light);
+        }
+
+        /* ── Main layout ── */
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 48px 28px 80px;
+        }
+
+        /* ── Section headings ── */
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-weight: 500;
+            font-size: 0.78em;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 52px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--rule-light);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* ── Lists ── */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 16px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--ink-light);
+        }
+
+        li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--rule);
+            font-size: 0.9em;
+        }
+
+        /* ── Research interests ── */
+        .interests {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.15em;
+            color: var(--ink-light);
+            line-height: 1.8;
+            padding-left: 18px;
+            border-left: 2px solid var(--rule-light);
+        }
+
+        /* ── Papers ── */
+        .paper-title {
+            font-style: italic;
+            color: var(--ink);
+            font-weight: 400;
+        }
+
+        .venue {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--ink-faint);
+            font-size: 0.95em;
+        }
+
+        /* ── Talks ── */
+        .talk-title {
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        .talk-meta {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--ink-faint);
+            font-size: 0.92em;
+        }
+
+        /* ── Awards grid ── */
+        .awards-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .award-name { flex: 1; }
+
+        .award-year {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--ink-faint);
+            font-size: 0.92em;
+            white-space: nowrap;
+        }
+
+        /* ── Teaching ── */
+        .teaching-entry {
+            display: flex;
+            gap: 16px;
+            align-items: baseline;
+        }
+
+        .course-name { flex: 1; }
+
+        .course-period {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--ink-faint);
+            font-size: 0.92em;
+            white-space: nowrap;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.88em;
+            color: var(--ink-faint);
+            border-top: 1px solid var(--rule-light);
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header { animation: fadeIn 0.7s ease both; }
+        main { animation: fadeIn 0.7s 0.15s ease both; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.9em; }
+            .awards-list li { flex-direction: column; gap: 0; }
+            .award-year { margin-left: 0; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>Zhu Ye (叶铸)</h1>
-            <div class="contact-info">
-                <p style="text-align: center;"> 
-                    Postdoctoral Fellow <br>
-                    Department of Mathematical Sciences, Tsinghua University, Beijing, China<br>
-                    Major: Pure Mathematics &nbsp; Specialization: Differential Geometry<br>
-                    Email: yezhu@tsinghua.edu.cn
-                </p>
+
+<div class="top-rule"></div>
+
+<header>
+    <h1>Zhu Ye <span class="name-chinese">叶铸</span></h1>
+
+    <div class="divider-ornament"><div class="diamond"></div></div>
+
+    <div class="contact-block">
+        <p class="role">Postdoctoral Fellow</p>
+        <p>Department of Mathematical Sciences, Tsinghua University, Beijing</p>
+        <p>Pure Mathematics &nbsp;·&nbsp; Differential Geometry</p>
+        <p><a href="mailto:yezhu@tsinghua.edu.cn">yezhu@tsinghua.edu.cn</a></p>
+    </div>
+</header>
+
+<main>
+
+    <h2>Employment</h2>
+    <ul>
+        <li>
+            <span style="color:var(--ink);">Postdoctoral Fellow, Shui Mu Tsinghua Scholar</span><br>
+            <span class="venue">Tsinghua University &nbsp;·&nbsp; July 2025 – Present</span>
+        </li>
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+        <li>
+            <span style="color:var(--ink);">Ph.D. in Mathematics</span>, Capital Normal University<br>
+            <span class="venue">September 2021 – June 2025 &nbsp;·&nbsp; Advisor: Xiaochun Rong (戎小春)</span>
+        </li>
+        <li>
+            <span style="color:var(--ink);">Visiting Student</span>, Rutgers, The State University of New Jersey<br>
+            <span class="venue">February 2024 – May 2024</span>
+        </li>
+        <li>
+            <span style="color:var(--ink);">M.S. in Mathematics</span>, Capital Normal University<br>
+            <span class="venue">September 2018 – June 2021 &nbsp;·&nbsp; Advisor: Fuquan Fang (方复全)</span>
+        </li>
+        <li>
+            <span style="color:var(--ink);">B.S. in Mathematics</span>, Capital Normal University<br>
+            <span class="venue">September 2014 – June 2018</span>
+        </li>
+    </ul>
+
+    <h2>Research Interests</h2>
+    <p class="interests">Riemannian geometry &nbsp;·&nbsp; Ricci curvature and topology &nbsp;·&nbsp; Metric measure spaces</p>
+
+    <h2>Research Articles</h2>
+    <ul>
+        <li>
+            <span class="paper-title">Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</span><br>
+            <span class="venue">Advances in Mathematics, 488:110786, 2026</span>
+        </li>
+        <li>
+            <span class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</span><br>
+            <span class="venue">Journal für die reine und angewandte Mathematik (Crelle's Journal), 817, 239–250, 2024</span>
+        </li>
+        <li>
+            <span class="paper-title">(With Jiayin Pan) Nonnegative Ricci curvature, splitting at infinity, and first Betti number rigidity</span><br>
+            <span class="venue">Advances in Mathematics, 459:110028, 2024</span>
+        </li>
+        <li>
+            <span class="paper-title">Maximal first Betti number rigidity of noncompact RCD(0, N) spaces</span><br>
+            <span class="venue">Proceedings of the American Mathematical Society, 151(12):5403–5412, 2023</span>
+        </li>
+        <li>
+            <span class="paper-title">Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</span><br>
+            <span class="venue">Journal of Geometric Analysis, 34(4):12, 2024</span>
+        </li>
+    </ul>
+
+    <h2>Talks and Presentations</h2>
+    <ul>
+        <li>
+            <span class="talk-title">Volume growth and asymptotic cones of manifolds with nonneg. Ricci curvature</span><br>
+            <span class="talk-meta">首都师范大学非负曲率流形几何研讨会 &nbsp;·&nbsp; January 18, 2026</span>
+        </li>
+        <li>
+            <span class="talk-title">Volume growth and asymptotic cone</span><br>
+            <span class="talk-meta">Peking-Westlake Geometric Analysis Seminar (online) &nbsp;·&nbsp; October 31, 2025</span>
+        </li>
+        <li>
+            <span class="talk-title">First Betti number rigidity of open manifolds with nonnegative Ricci curvature</span><br>
+            <span class="talk-meta">YMSC Postdoc Workshop V, Tsinghua University &nbsp;·&nbsp; September 14, 2025</span>
+        </li>
+        <li>
+            <span class="talk-title">Volume growth and asymptotic cones of manifolds with nonneg. Ricci curvature</span><br>
+            <span class="talk-meta">Geometric Analysis Seminar, Westlake University &nbsp;·&nbsp; November 13, 2024</span>
+        </li>
+        <li>
+            <span class="talk-title">On manifolds with nonneg. Ricci curvature and the infimum of volume growth order &lt; 2</span><br>
+            <span class="talk-meta">2nd Frontier Mathematics PhD Academic Exchange Conference, Peking University &nbsp;·&nbsp; October 31, 2024</span>
+        </li>
+        <li>
+            <span class="talk-title">Some rigidity theorems on open manifolds with nonnegative Ricci curvature</span><br>
+            <span class="talk-meta">Metric Geometry Seminar, Kunming &nbsp;·&nbsp; June 30 – July 5, 2024</span>
+        </li>
+        <li>
+            <span class="talk-title">Some rigidity theorems on open manifolds with nonnegative Ricci curvature</span><br>
+            <span class="talk-meta">Peking-Westlake Geometric Analysis Seminar (online) &nbsp;·&nbsp; June 3, 2024</span>
+        </li>
+        <li>
+            <span class="talk-title">Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</span><br>
+            <span class="talk-meta">Jingshi Metric Geometry Conference, Beijing Normal University &nbsp;·&nbsp; June 2023</span>
+        </li>
+    </ul>
+
+    <h2>Awards</h2>
+    <ul class="awards-list">
+        <li>
+            <span class="award-name">首都师范大学校长奖学金（一等奖）</span>
+            <span class="award-year">2025</span>
+        </li>
+        <li>
+            <span class="award-name">北京数学会优秀青年论文</span>
+            <span class="award-year">2024</span>
+        </li>
+        <li>
+            <span class="award-name">白海宁未来教育英才奖学金</span>
+            <span class="award-year">2024</span>
+        </li>
+        <li>
+            <span class="award-name">National Scholarship（国家奖学金）</span>
+            <span class="award-year">2023</span>
+        </li>
+        <li>
+            <span class="award-name">Graduate Scholarship, Capital Normal University</span>
+            <span class="award-year">2018–2022</span>
+        </li>
+    </ul>
+
+    <h2>Teaching Assistant</h2>
+    <ul>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">Analytic Geometry</span>
+                <span class="course-period">Fall 2019, Fall 2020, Fall 2021</span>
             </div>
-        </div>
-    </header>
+        </li>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">Geometric Fundamentals &amp; Projective Geometry</span>
+                <span class="course-period">Spring 2020</span>
+            </div>
+        </li>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">Differential Geometry</span>
+                <span class="course-period">Spring 2021</span>
+            </div>
+        </li>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">Algebraic Topology II</span>
+                <span class="course-period">Spring 2022</span>
+            </div>
+        </li>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">The Structure of Collapsed Riemannian Manifolds</span>
+                <span class="course-period">May–August 2022</span>
+            </div>
+        </li>
+        <li>
+            <div class="teaching-entry">
+                <span class="course-name">Real Analysis</span>
+                <span class="course-period">Fall 2022</span>
+            </div>
+        </li>
+    </ul>
 
-    <main>
-        <h2>Employment</h2>
-        <ul>
-            <li>
-                July 2025 - Present: Postdoctoral Fellow, Shui Mu Tsinghua Scholar, Tsinghua University.<br>
-                <!-- Advisor: Guoyi Xu (徐国义) -->
-            </li>
-        </ul>
+</main>
 
-        <h2>Education</h2>
-        <ul>
-            <li>September 2021 - June 2025: Ph.D. in Mathematics, Capital Normal University. <br> (Advisor: Xiaochun Rong 戎小春)</li>
-            <li>February 2024 - May 2024: Visiting Student, Rutgers, The State University of New Jersey.</li>
-            <li>September 2018 - June 2021: M.S. in Mathematics, Capital Normal University. <br> (Advisor: Fuquan Fang 方复全)</li>
-            <li>September 2014 - June 2018: B.S. in Mathematics, Capital Normal University.</li>
-        </ul>
+<footer>
+    <div class="divider-ornament" style="margin-bottom:14px;"><div class="diamond"></div></div>
+    Department of Mathematical Sciences &nbsp;·&nbsp; Tsinghua University &nbsp;·&nbsp; Beijing, China
+</footer>
 
-        <h2>Research Interests</h2>
-        <p>Riemannian geometry, Ricci curvature and topology, Metric measure spaces.</p>
-
-        <h2>Research Articles</h2> 
-        <ul>
-            <li>
-                <span class="paper-title">Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</span>, 
-                <span class="venue">Adv. Math., 488:110786, 2026.</span>
-            </li>
-            <li>
-                <span class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</span>, 
-                <span class="venue">J. Reine Angew. Math. (Crelle's Journal), 817, 239-250, 2024.</span>
-            </li>
-            <li>
-                <span class="paper-title">(With Jiayin Pan) Nonnegative Ricci curvature, splitting at infinity, and first Betti number rigidity</span>, 
-                <span class="venue">Adv. Math., 459:110028, 2024.</span>
-            </li>
-            <li>
-                <span class="paper-title">Maximal first Betti number rigidity of noncompact RCD(0, N) spaces</span>, 
-                <span class="venue">Proc. Amer. Math. Soc., 151(12):5403–5412, 2023.</span>
-            </li>
-            <li>
-                <span class="paper-title">Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</span>, 
-                <span class="venue">J. Geom. Anal., 34(4):12, 2024.</span>
-            </li>
-        </ul>
-
-        <h2>Talks and Presentations</h2>
-        <ul>
-            <li><em>Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</em>, 首都师范大学非负曲率流形几何研讨会, January 18, 2026.</li>
-            <li><em>Volume growth and asymptotic cone</em>, Peking-Westlake Geometric Analysis Seminar (online), October 31, 2025.</li>
-            <li><em>First Betti number rigidity of open manifolds with nonnegative Ricci curvature</em>, YMSC Postdoc workshop V, Tsinghua University, September 14, 2025.</li>
-            <li><em>Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</em>, Geometric Analysis Seminar, Westlake University, November 13, 2024.</li>
-            <li><em>On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</em>, The 2nd Frontier Mathematics PhD Academic Exchange Conference, Peking University, October 31, 2024.</li>
-            <li><em>Some rigidity theorems on open manifolds with nonnegative Ricci curvature</em>, Metric Geometry Seminar, Kunming, June 30-July 5, 2024.</li>
-            <li><em>Some rigidity theorems on open manifolds with nonnegative Ricci curvature</em>, Peking-Westlake Geometric Analysis Seminar, online, June 3, 2024.</li>
-            <li><em>Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</em>, Jingshi Metric Geometry Conference,   Jingshi Metric Geometry Conference, Beijing Normal University, June 2023.</li>
-        </ul>
-
-        <h2>Awards</h2>
-        <ul>
-            <li>首都师范大学校长奖学金 (一等奖), 2025</li>
-            <li>北京数学会优秀青年论文, 2024</li>
-            <li>白海宁未来教育英才奖学金, 2024</li>
-            <li>National Scholarship (国家奖学金), 2023</li>
-            <li>Graduate Scholarship, Capital Normal University, 2018-2022</li>
-        </ul>
-
-        <h2>Teaching Assistant</h2>
-        <ul>
-            <li>Analytic Geometry (Fall 2019, Fall 2020, Fall 2021)</li>
-            <li>Geometric Fundamentals & Projective Geometry (Spring 2020)</li>
-            <li>Differential Geometry (Spring 2021)</li>
-            <li>Algebraic Topology II (Spring 2022)</li>
-            <li>The Structure of Collapsed Riemannian Manifolds (May-August 2022)</li>
-            <li>Real Analysis (Fall 2022)</li>
-        </ul>
-    </main>
 </body>
 </html>
