@@ -11,24 +11,25 @@
             margin: 0;
             padding: 0;
             color: #333;
+            /* 确保全局默认不加粗 */
+            font-weight: normal;
         }
         header {
             background: #f8f9fa;
             padding: 40px 20px;
             border-bottom: 1px solid #eee;
-            /* 核心修改：让 header 内部所有内容居中 */
             text-align: center; 
         }
         .header-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        /* 名字居中 */
+        /* 名字不加粗 */
         h1 { 
             margin-bottom: 20px; 
             font-size: 2.2em;
+            font-weight: normal;
         } 
-        /* 联系信息居中 */
         .contact-info { 
             font-size: 1.0em; 
             text-align: center;
@@ -39,20 +40,23 @@
             padding: 20px;
             background: #fff;
         }
+        /* 唯独保留 Section 标题加粗 */
         h2 { 
             border-bottom: 2px solid #333; 
             padding-bottom: 5px; 
             margin-top: 30px;
             text-transform: uppercase;
             font-size: 1.2em;
-            text-align: left; /* 标题保持左对齐 */
+            text-align: left;
+            font-weight: bold; 
         }
         ul { padding-left: 20px; text-align: left; }
         li { margin-bottom: 12px; } 
         p { text-align: left; }
         a { color: #007BFF; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .paper-title { font-style: italic; font-weight: bold; }
+        /* 论文标题设为正常粗细 */
+        .paper-title { font-style: italic; font-weight: normal; }
         .venue { color: #555; }
     </style>
 </head>
@@ -61,10 +65,11 @@
         <div class="header-content">
             <h1>Zhu Ye (叶铸)</h1>
             <div class="contact-info">
-                <p style="text-align: center;"> <strong>Postdoctoral Fellow</strong><br>
+                <p style="text-align: center;"> 
+                    Postdoctoral Fellow, Shui Mu Tsinghua Scholar (清华大学水木学者博士后)<br>
                     Department of Mathematical Sciences, Tsinghua University, Beijing, China<br>
-                    <strong>Major:</strong> Pure Mathematics &nbsp; <strong>Specialization:</strong> Differential Geometry<br>
-                    <strong>Email:</strong> yezhu@tsinghua.edu.cn
+                    Major: Pure Mathematics &nbsp; Specialization: Differential Geometry<br>
+                    Email: yezhu@tsinghua.edu.cn
                 </p>
             </div>
         </div>
@@ -74,30 +79,30 @@
         <h2>Employment</h2>
         <ul>
             <li>
-                <strong>July 2025 - Present:</strong> Postdoctoral Fellow, Shui Mu Tsinghua Scholar, Tsinghua University.<br>
-                <!-- Advisor: Guoyi Xu (徐国义) -->
+                July 2025 - Present: Postdoctoral Fellow, Shui Mu Tsinghua Scholar, Tsinghua University.<br>
+                Advisor: Guoyi Xu (徐国义)
             </li>
         </ul>
 
         <h2>Education</h2>
         <ul>
-            <li><strong>September 2021 - June 2025:</strong> Ph.D. in Mathematics, Capital Normal University. <br> (Advisor: Xiaochun Rong 戎小春)</li>
-            <li><strong>February 2024 - May 2024:</strong> Visiting Student, Rutgers, The State University of New Jersey.</li>
-            <li><strong>September 2018 - June 2021:</strong> M.S. in Mathematics, Capital Normal University. <br> (Advisor: Fuquan Fang 方复全)</li>
-            <li><strong>September 2014 - June 2018:</strong> B.S. in Mathematics, Capital Normal University.</li>
+            <li>September 2021 - June 2025: Ph.D. in Mathematics, Capital Normal University. <br> (Advisor: Xiaochun Rong 戎小春)</li>
+            <li>February 2024 - May 2024: Visiting Student, Rutgers, The State University of New Jersey.</li>
+            <li>September 2018 - June 2021: M.S. in Mathematics, Capital Normal University. <br> (Advisor: Fuquan Fang 方复全)</li>
+            <li>September 2014 - June 2018: B.S. in Mathematics, Capital Normal University.</li>
         </ul>
 
         <h2>Research Interests</h2>
         <p>Riemannian geometry, Ricci curvature and topology, Metric measure spaces.</p>
 
         <h2>Research Articles</h2> 
-<ul>
+        <ul>
             <li>
                 <span class="paper-title">Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</span>, 
                 <span class="venue">Adv. Math., 488:110786, 2026.</span>
             </li>
             <li>
-                <span class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order < 2</span>, 
+                <span class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</span>, 
                 <span class="venue">J. Reine Angew. Math. (Crelle's Journal), 817, 239-250, 2024.</span>
             </li>
             <li>
