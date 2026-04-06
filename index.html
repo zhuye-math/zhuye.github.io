@@ -16,20 +16,22 @@
             background: #f8f9fa;
             padding: 40px 20px;
             border-bottom: 1px solid #eee;
+            /* 核心修改：让 header 内部所有内容居中 */
+            text-align: center; 
         }
         .header-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        /* 名字绝对居中 */
+        /* 名字居中 */
         h1 { 
             margin-bottom: 20px; 
-            text-align: center; 
             font-size: 2.2em;
         } 
+        /* 联系信息居中 */
         .contact-info { 
             font-size: 1.0em; 
-            text-align: left; 
+            text-align: center;
         }
         main {
             max-width: 800px;
@@ -43,9 +45,11 @@
             margin-top: 30px;
             text-transform: uppercase;
             font-size: 1.2em;
+            text-align: left; /* 标题保持左对齐 */
         }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 12px; } /* 增加间距让换行更清晰 */
+        ul { padding-left: 20px; text-align: left; }
+        li { margin-bottom: 12px; } 
+        p { text-align: left; }
         a { color: #007BFF; text-decoration: none; }
         a:hover { text-decoration: underline; }
         .paper-title { font-style: italic; font-weight: bold; }
@@ -57,8 +61,7 @@
         <div class="header-content">
             <h1>Zhu Ye (叶铸)</h1>
             <div class="contact-info">
-                <p>
-                    <strong>Postdoctoral Fellow</strong><br>
+                <p style="text-align: center;"> <strong>Postdoctoral Fellow, Shui Mu Tsinghua Scholar (清华大学水木学者博士后)</strong><br>
                     Department of Mathematical Sciences, Tsinghua University, Beijing, China<br>
                     <strong>Major:</strong> Pure Mathematics &nbsp; <strong>Specialization:</strong> Differential Geometry<br>
                     <strong>Email:</strong> yezhu@tsinghua.edu.cn
@@ -94,19 +97,19 @@
                 <span class="venue">Adv. Math., 488:110786, 2026.</span>
             </li>
             <li>
-                <span class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order < 2</span>, 
+                <a href="https://www.degruyter.com/document/doi/10.1515/crelle-2024-0078/pdf" target="_blank" class="paper-title">On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</a>, 
                 <span class="venue">J. Reine Angew. Math. (Crelle's Journal), 817, 239-250, 2024.</span>
             </li>
             <li>
-                <span class="paper-title">(With Jiayin Pan) Nonnegative Ricci curvature, splitting at infinity, and first Betti number rigidity</span>, 
+                <a href="https://www.sciencedirect.com/science/article/pii/S0001870824005449" target="_blank" class="paper-title">(With Jiayin Pan) Nonnegative Ricci curvature, splitting at infinity, and first Betti number rigidity</a>, 
                 <span class="venue">Adv. Math., 459:110028, 2024.</span>
             </li>
             <li>
-                <span class="paper-title">Maximal first Betti number rigidity of noncompact RCD(0, N) spaces</span>, 
+                <a href="https://www.ams.org/journals/proc/2023-151-12/S0002-9939-2023-16574-0/home.html" target="_blank" class="paper-title">Maximal first Betti number rigidity of noncompact RCD(0, N) spaces</a>, 
                 <span class="venue">Proc. Amer. Math. Soc., 151(12):5403–5412, 2023.</span>
             </li>
             <li>
-                <span class="paper-title">Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</span>, 
+                <a href="https://link.springer.com/article/10.1007/s12220-024-01551-7" target="_blank" class="paper-title">Maximal first Betti number rigidity for open manifolds of nonnegative Ricci curvature</a>, 
                 <span class="venue">J. Geom. Anal., 34(4):12, 2024.</span>
             </li>
         </ul>
@@ -117,7 +120,7 @@
             <li><em>Volume growth and asymptotic cone</em>, Peking-Westlake Geometric Analysis Seminar (online), October 31, 2025.</li>
             <li><em>First Betti number rigidity of open manifolds with nonnegative Ricci curvature</em>, YMSC Postdoc workshop V, Tsinghua University, September 14, 2025.</li>
             <li><em>Volume growth and asymptotic cones of manifolds with nonnegative Ricci curvature</em>, Geometric Analysis Seminar, Westlake University, November 13, 2024.</li>
-            <li><em>On manifolds with nonnegative Ricci curvature and the infimum of volume growth order < 2</em>, The 2nd Frontier Mathematics PhD Academic Exchange Conference, Peking University, October 31, 2024.</li>
+            <li><em>On manifolds with nonnegative Ricci curvature and the infimum of volume growth order &lt; 2</em>, The 2nd Frontier Mathematics PhD Academic Exchange Conference, Peking University, October 31, 2024.</li>
             <li><em>Some rigidity theorems on open manifolds with nonnegative Ricci curvature</em>, Metric Geometry Seminar, Kunming, June 30-July 5, 2024.</li>
             <li><em>Some rigidity theorems on open manifolds with nonnegative Ricci curvature</em>, Peking-Westlake Geometric Analysis Seminar, online, June 3, 2024.</li>
             <li><em>Maximal first Betti number rigidity...</em>, Jingshi Metric Geometry Conference, BNU, June 2023.</li>
